@@ -1,0 +1,83 @@
+<div *ngIf="!isLoading" class="wrapper">
+    <div class="col-lg-12">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-2">
+                <span>Title</span>
+            </div>
+            <div class="col-lg-4">
+                <span>{{issue.title}}</span>
+            </div>
+        </div>
+        <div class="row mt-3 d-flex align-items-center">
+            <div class="col-lg-2">
+                <span>Text</span>
+            </div>
+            <div class="col-lg-4">
+                <textarea disabled [(ngModel)]="issue.body">
+                    
+                </textarea>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-2">
+                <h3>Comments</h3>
+            </div>
+        </div>
+        <div *ngIf="!comments.length" class="row">
+            <div class="col-lg-2">
+                <p>No Comments.</p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div *ngFor="let comment of comments" class="row mt-3 pt-2 border border-dark d-flex align-items-center">
+                <div class="col-lg-2">
+                    <span>{{ comment.user.login }}</span>
+                </div>
+                <div class="col-lg-6">
+                    <textarea disabled [(ngModel)]="comment.body">
+                        
+                    </textarea>
+                </div>
+                <div *ngIf="comment.reactions.total_count;else noReactions" class="col-lg-4">
+                    <div class="row mt-1">
+                        <div class="col-lg-6">"+1"</div>
+                        <div class="col-lg-2">{{ comment.reactions["+1"] }}</div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-lg-6">"-1"</div>
+                        <div class="col-lg-2">{{ comment.reactions["-1"] }}</div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-lg-6">"laugh"</div>
+                        <div class="col-lg-2">{{ comment.reactions.laugh }}</div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-lg-6">"hooray"</div>
+                        <div class="col-lg-2">{{ comment.reactions.hooray }}</div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-lg-6">"confused"</div>
+                        <div class="col-lg-2">{{ comment.reactions.confused }}</div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-lg-6">"heart"</div>
+                        <div class="col-lg-2">{{ comment.reactions.heart }}</div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-lg-6">"rocket"</div>
+                        <div class="col-lg-2">{{ comment.reactions.rocket }}</div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-lg-6">"eyes"</div>
+                        <div class="col-lg-2">{{ comment.reactions.eyes }}</div>
+                    </div>
+                </div>
+                <ng-template #noReactions>
+                    <div class="col-lg-4">
+                        <span class="text-warning">No reactions.</span>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

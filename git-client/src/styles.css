@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.wrapper{
+    margin: 30px 0 0 50px;
+  }
+
+.navbar {
+    display: flex;
+    background-color: #333;
+    padding: 10px;
+}
+
+.navbar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar a:hover {
+    background-color: #555;
+    cursor: pointer;
+}
